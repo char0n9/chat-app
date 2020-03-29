@@ -3,9 +3,15 @@ import './Contact.css';
 import PropTypes from 'prop-types';
 
 
+
 class Contact extends React.Component { 
     
-    render() {return( <div className="Contact">
+ 
+    render() {return( 
+    
+    
+    <div className="Contact">
+      
        <img className="avatar" src={this.props.avatar} alt="something"></img>
        <div>
        <h4 className="name">{this.props.name}</h4>
