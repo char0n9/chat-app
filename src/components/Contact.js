@@ -1,17 +1,18 @@
 import React from 'react';
 import './Contact.css';
+import PropTypes from 'prop-types';
+
 
 class Contact extends React.Component { 
-    isOnline = false;
-    name = 'random_name';
+    
     render() {return( <div className="Contact">
-       <img className="avatar" src="https://randomuser.me/api/portraits/women/47.jpg" alt="something"></img>
+       <img className="avatar" src={this.props.avatar} alt="something"></img>
        <div>
-       <h4 className="name">{this.name}</h4>
+       <h4 className="name">{this.props.name}</h4>
         <div className="status">
         
-        <div className={this.isOnline ? "status-online" : "status-offline"}></div>
-         <h5 className="status-text">{this.isOnline ? "Online" : "Offline"}</h5>
+        <div className={this.props.online ? "status-online" : "status-offline"}></div>
+         <h5 className="status-text">{this.props.online ? "Online" : "Offline"}</h5>
         </div>
         </div>
         
@@ -20,5 +21,9 @@ class Contact extends React.Component {
         }
     }
 
-
+Contact.propTypes = {
+    name: PropTypes.string,
+    online: PropTypes.bool,
+    avatar: PropTypes.string
+}
 export default Contact
