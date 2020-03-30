@@ -6,7 +6,14 @@ import PropTypes from 'prop-types';
 
 class Contact extends React.Component { 
     
+    constructor(props) {
+        super(props);
+        this.state = {
+            online : props.online
+        };
+    }
  
+
     render() {return( 
     
     
@@ -17,8 +24,13 @@ class Contact extends React.Component {
        <h4 className="name">{this.props.name}</h4>
         <div className="status">
         
-        <div className={this.props.online ? "status-online" : "status-offline"}></div>
-         <h5 className="status-text">{this.props.online ? "Online" : "Offline"}</h5>
+        <div className={this.state.online ? "status-online" : "status-offline"}></div>
+         <h5
+         onClick = {event=>{
+             const newOnline = !this.state.online;
+             this.setState({online: newOnline})
+         }}
+         className="status-text">{this.state.online ? "Online" : "Offline"}</h5>
         </div>
         </div>
         
